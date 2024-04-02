@@ -4,32 +4,87 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".FirstFragment">
+        tools:context=".fragments.FirstFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginBottom="100dp"
             android:padding="16dp">
 
-        <Button
-                android:id="@+id/button_first"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/next"
-                app:layout_constraintBottom_toTopOf="@id/textview_first"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-                android:id="@+id/textview_first"
+                android:text="Usuario"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/lorem_ipsum"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/button_first" />
+                android:id="@+id/tvUser"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/btnRegister"
+                app:layout_constraintEnd_toStartOf="@+id/guideline" />
+
+        <TextView
+                android:text="Contraseña"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvPassword"
+                app:layout_constraintEnd_toEndOf="@+id/tvUser"
+                app:layout_constraintTop_toBottomOf="@+id/tvUser"
+                android:layout_marginTop="20dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/guideline"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:text=""
+                android:ems="10"
+                android:id="@+id/editTextUser"
+                app:layout_constraintBottom_toBottomOf="@+id/tvUser"
+                app:layout_constraintStart_toEndOf="@+id/tvUser"
+                android:textSize="12sp"
+                app:layout_constraintTop_toTopOf="@+id/tvUser"
+                android:layout_marginLeft="20dp" />
+
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:text=""
+                android:ems="10"
+                android:id="@+id/editTextPassword"
+                app:layout_constraintBottom_toBottomOf="@+id/tvPassword"
+                app:layout_constraintStart_toEndOf="@+id/tvPassword"
+                android:textSize="12sp"
+                app:layout_constraintTop_toTopOf="@+id/tvPassword"
+                android:layout_marginLeft="20dp" />
+
+        <Button
+                android:text="Iniciar sesión"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnLogin"
+                app:layout_constraintTop_toBottomOf="@+id/tvPassword"
+                android:layout_marginTop="35dp"
+                android:layout_marginLeft="10dp"
+                app:layout_constraintStart_toStartOf="@+id/guideline" />
+
+        <Button
+                android:text="Registrarse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnRegister"
+                app:layout_constraintTop_toBottomOf="@+id/tvPassword"
+                android:layout_marginTop="35dp"
+                android:layout_marginRight="10dp"
+                app:layout_constraintEnd_toStartOf="@+id/guideline" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
