@@ -9,19 +9,16 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import androidx.navigation.fragment.findNavController
 import com.example.evaluablet3.R
-import com.example.evaluablet3.databinding.FragmentFirstBinding
+import com.example.evaluablet3.databinding.FragmentLoginBinding
 import com.google.android.material.snackbar.Snackbar
-import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.auth
-import com.google.firebase.database.FirebaseDatabase
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
-class FirstFragment : Fragment() {
+class LoginFragment : Fragment() {
 
-    private var _binding: FragmentFirstBinding? = null
+    private var _binding: FragmentLoginBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -33,7 +30,7 @@ class FirstFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentFirstBinding.inflate(inflater, container, false)
+        _binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
 
     }
@@ -43,11 +40,11 @@ class FirstFragment : Fragment() {
 
         binding.btnLogin.setOnClickListener {
 
-            // oculto el teclado
+            // hide keyboard
             val inputMethodManager = requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
 
-            val email = binding.editTextUser.text.toString()
+            val email = binding.editTextEmail.text.toString()
             val password = binding.editTextPassword.text.toString()
 
             auth.signInWithEmailAndPassword(email, password)
@@ -55,7 +52,7 @@ class FirstFragment : Fragment() {
                     if (it.isSuccessful) {
                         //TODO: move to menuActivity
                     } else {
-                        Snackbar.make(binding.root, "Usuario o contraseña incorrectos", Snackbar.LENGTH_SHORT).show()
+                        Snackbar.make(binding.root, "Correo o contraseña incorrectos", Snackbar.LENGTH_SHORT).show()
                     }
                 }
         }

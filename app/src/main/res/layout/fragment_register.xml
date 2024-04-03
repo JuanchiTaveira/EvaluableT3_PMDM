@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".fragments.RegisterFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginBottom="100dp"
+            android:padding="16dp">
+
+        <TextView
+                android:text="Correo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvEmail"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/guideline" />
+
+        <androidx.constraintlayout.widget.Guideline
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/guideline"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:text=""
+                android:ems="10"
+                android:id="@+id/editTextEmail"
+                app:layout_constraintBottom_toBottomOf="@+id/tvEmail"
+                app:layout_constraintStart_toEndOf="@+id/tvEmail"
+                android:textSize="12sp"
+                app:layout_constraintTop_toTopOf="@+id/tvEmail"
+                android:layout_marginStart="20dp" />
+
+        <TextView
+                android:text="Contraseña"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvPassword"
+                app:layout_constraintEnd_toEndOf="@+id/tvEmail"
+                app:layout_constraintTop_toBottomOf="@+id/tvUser"
+                android:layout_marginTop="20dp" />
+
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:text=""
+                android:ems="10"
+                android:id="@+id/editTextPassword"
+                app:layout_constraintBottom_toBottomOf="@+id/tvPassword"
+                app:layout_constraintStart_toEndOf="@+id/tvPassword"
+                android:textSize="12sp"
+                app:layout_constraintTop_toTopOf="@+id/tvPassword"
+                android:layout_marginStart="20dp" />
+
+        <TextView
+                android:text="Usuario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvUser"
+                app:layout_constraintEnd_toEndOf="@+id/tvEmail"
+                app:layout_constraintTop_toBottomOf="@+id/tvEmail"
+                android:layout_marginTop="20dp" />
+
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:text=""
+                android:ems="10"
+                android:id="@+id/editTextUser"
+                app:layout_constraintBottom_toBottomOf="@+id/tvUser"
+                app:layout_constraintStart_toEndOf="@+id/tvPassword"
+                android:textSize="12sp"
+                app:layout_constraintTop_toTopOf="@+id/tvUser"
+                android:layout_marginStart="20dp" />
+
+        <Button
+                android:text="Registrarse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnRegister"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextPassword"
+                android:layout_marginTop="35dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
