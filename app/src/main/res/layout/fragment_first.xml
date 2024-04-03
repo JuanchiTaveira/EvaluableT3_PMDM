@@ -50,12 +50,12 @@
                 app:layout_constraintStart_toEndOf="@+id/tvUser"
                 android:textSize="12sp"
                 app:layout_constraintTop_toTopOf="@+id/tvUser"
-                android:layout_marginLeft="20dp" />
+                android:layout_marginStart="20dp" />
 
         <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="text"
+                android:inputType="textPassword"
                 android:text=""
                 android:ems="10"
                 android:id="@+id/editTextPassword"
@@ -63,7 +63,7 @@
                 app:layout_constraintStart_toEndOf="@+id/tvPassword"
                 android:textSize="12sp"
                 app:layout_constraintTop_toTopOf="@+id/tvPassword"
-                android:layout_marginLeft="20dp" />
+                android:layout_marginStart="20dp" />
 
         <Button
                 android:text="Iniciar sesión"
@@ -72,7 +72,7 @@
                 android:id="@+id/btnLogin"
                 app:layout_constraintTop_toBottomOf="@+id/tvPassword"
                 android:layout_marginTop="35dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 app:layout_constraintStart_toStartOf="@+id/guideline" />
 
         <Button
@@ -82,7 +82,7 @@
                 android:id="@+id/btnRegister"
                 app:layout_constraintTop_toBottomOf="@+id/tvPassword"
                 android:layout_marginTop="35dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginEnd="10dp"
                 app:layout_constraintEnd_toStartOf="@+id/guideline" />
 
 
