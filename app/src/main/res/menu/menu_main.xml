@@ -1,10 +1,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        tools:context="com.example.evaluablet3.activities.LoginActivity">
+        tools:context="com.example.evaluablet3.activities.MainActivity">
     <item
-            android:id="@+id/action_settings"
-            android:title="@string/action_settings"
+            android:id="@+id/action_favs"
+            android:title="@string/action_favs"
             android:orderInCategory="100"
             app:showAsAction="never" />
 </menu>
