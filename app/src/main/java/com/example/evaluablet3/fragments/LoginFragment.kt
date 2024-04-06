@@ -1,5 +1,6 @@
 package com.example.evaluablet3.fragments
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -24,6 +25,16 @@ class LoginFragment : Fragment() {
     private val binding get() = _binding!!
     private val auth: FirebaseAuth = FirebaseAuth.getInstance()
 
+    private var email : String? = null
+    private var password : String? = null
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+
+        email = arguments?.getString("email")
+        password = arguments?.getString("password")
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -37,6 +48,9 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.editTextEmail.setText(email)
+        binding.editTextPassword.setText(password)
+
         binding.btnLogin.setOnClickListener {
 
             Utils.hideKeyboard(this, view)
@@ -44,7 +58,7 @@ class LoginFragment : Fragment() {
             val email = binding.editTextEmail.text.toString()
             val password = binding.editTextPassword.text.toString()
 
-            if (email.isNullOrBlank() || password.isNullOrBlank())
+            if (email.isBlank() || password.isBlank())
                 return@setOnClickListener
 
             auth.signInWithEmailAndPassword(email, password)

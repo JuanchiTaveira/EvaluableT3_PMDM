@@ -51,7 +51,7 @@ class RegisterFragment : Fragment() {
             val name = binding.editTextName.text.toString()
             val password = binding.editTextPassword.text.toString()
 
-            if (email.isNullOrBlank() || password.isNullOrBlank() || name.isNullOrBlank())
+            if (email.isBlank() || password.isBlank() || name.isBlank())
                 return@setOnClickListener
 
             val newUser = User(email, name)
@@ -61,7 +61,12 @@ class RegisterFragment : Fragment() {
                     database.getReference("users").child(auth.currentUser!!.uid).setValue(newUser).addOnCompleteListener {
                         if (it.isSuccessful) {
                             Snackbar.make(binding.root, "Usuario creado con éxito", Snackbar.LENGTH_SHORT).show()
-                            findNavController().navigate(R.id.action_RegisterFragment_to_LoginFragment)
+
+                            val bundle = Bundle()
+                            bundle.putString("email", email)
+                            bundle.putString("password", password)
+
+                            findNavController().navigate(R.id.action_RegisterFragment_to_LoginFragment, bundle)
                         } else {
                             Snackbar.make(binding.root, "Error al registrarse", Snackbar.LENGTH_SHORT).show()
                         }
