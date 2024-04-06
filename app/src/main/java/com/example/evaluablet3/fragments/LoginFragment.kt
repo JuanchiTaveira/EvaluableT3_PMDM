@@ -44,6 +44,9 @@ class LoginFragment : Fragment() {
             val email = binding.editTextEmail.text.toString()
             val password = binding.editTextPassword.text.toString()
 
+            if (email.isNullOrBlank() || password.isNullOrBlank())
+                return@setOnClickListener
+
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener {
                     if (it.isSuccessful) {

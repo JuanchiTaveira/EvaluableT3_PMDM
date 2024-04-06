@@ -51,6 +51,9 @@ class RegisterFragment : Fragment() {
             val name = binding.editTextName.text.toString()
             val password = binding.editTextPassword.text.toString()
 
+            if (email.isNullOrBlank() || password.isNullOrBlank() || name.isNullOrBlank())
+                return@setOnClickListener
+
             val newUser = User(email, name)
 
             auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
