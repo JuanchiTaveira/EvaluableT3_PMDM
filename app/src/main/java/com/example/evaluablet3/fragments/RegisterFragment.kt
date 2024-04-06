@@ -9,6 +9,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.evaluablet3.R
 import com.example.evaluablet3.databinding.FragmentRegisterBinding
 import com.example.evaluablet3.model.User
+import com.example.evaluablet3.utils.Utils
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
@@ -43,6 +44,9 @@ class RegisterFragment : Fragment() {
         database = FirebaseDatabase.getInstance("https://evaluablet3-pmdm-default-rtdb.europe-west1.firebasedatabase.app/")
 
         binding.btnRegister.setOnClickListener {
+
+            Utils.hideKeyboard(this, view)
+
             val email = binding.editTextEmail.text.toString()
             val name = binding.editTextName.text.toString()
             val password = binding.editTextPassword.text.toString()
