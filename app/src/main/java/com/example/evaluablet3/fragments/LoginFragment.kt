@@ -1,6 +1,7 @@
 package com.example.evaluablet3.fragments
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.evaluablet3.R
+import com.example.evaluablet3.activities.MainActivity
 import com.example.evaluablet3.databinding.FragmentLoginBinding
 import com.example.evaluablet3.utils.Utils
 import com.google.android.material.snackbar.Snackbar
@@ -64,7 +66,9 @@ class LoginFragment : Fragment() {
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener {
                     if (it.isSuccessful) {
-                        //TODO: move to menuActivity
+                        val intent = Intent(requireActivity(), MainActivity::class.java)
+                        intent.putExtra("uid", auth.currentUser!!.uid)
+                        startActivity(intent)
                     } else {
                         Snackbar.make(binding.root, "Correo o contraseña incorrectos", Snackbar.LENGTH_SHORT).show()
                     }
