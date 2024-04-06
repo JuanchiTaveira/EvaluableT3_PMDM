@@ -2,11 +2,11 @@ package com.example.evaluablet3.fragments
 
 import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.evaluablet3.R
 import com.example.evaluablet3.databinding.FragmentLoginBinding
@@ -58,7 +58,7 @@ class LoginFragment : Fragment() {
         }
 
         binding.btnRegister.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+            findNavController().navigate(R.id.action_LoginFragment_to_RegisterFragment)
         }
     }
 

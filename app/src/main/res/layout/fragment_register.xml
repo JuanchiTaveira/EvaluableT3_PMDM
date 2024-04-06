@@ -48,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/tvPassword"
                 app:layout_constraintEnd_toEndOf="@+id/tvEmail"
-                app:layout_constraintTop_toBottomOf="@+id/tvUser"
+                app:layout_constraintTop_toBottomOf="@+id/tvName"
                 android:layout_marginTop="20dp" />
 
         <EditText
@@ -65,10 +65,10 @@
                 android:layout_marginStart="20dp" />
 
         <TextView
-                android:text="Usuario"
+                android:text="Nombre"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/tvUser"
+                android:id="@+id/tvName"
                 app:layout_constraintEnd_toEndOf="@+id/tvEmail"
                 app:layout_constraintTop_toBottomOf="@+id/tvEmail"
                 android:layout_marginTop="20dp" />
@@ -79,11 +79,11 @@
                 android:inputType="text"
                 android:text=""
                 android:ems="10"
-                android:id="@+id/editTextUser"
-                app:layout_constraintBottom_toBottomOf="@+id/tvUser"
+                android:id="@+id/editTextName"
+                app:layout_constraintBottom_toBottomOf="@+id/tvName"
                 app:layout_constraintStart_toEndOf="@+id/tvPassword"
                 android:textSize="12sp"
-                app:layout_constraintTop_toTopOf="@+id/tvUser"
+                app:layout_constraintTop_toTopOf="@+id/tvName"
                 android:layout_marginStart="20dp" />
 
         <Button
