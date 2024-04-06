@@ -5,6 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.evaluablet3.adapters.LeaguesAdapter
 import com.example.evaluablet3.databinding.FragmentFirstBinding
 
 /**
@@ -24,6 +27,12 @@ class FirstFragment : Fragment() {
     ): View {
 
         _binding = FragmentFirstBinding.inflate(inflater, container, false)
+
+        val leaguesList: List<String> = listOf("Premier League", "Bundesliga", "Eredivise")
+
+        binding.recyclerLeagues.adapter = LeaguesAdapter(leaguesList, requireActivity())
+        binding.recyclerLeagues.layoutManager = LinearLayoutManager(requireActivity().applicationContext, RecyclerView.VERTICAL, false)
+
         return binding.root
 
     }
