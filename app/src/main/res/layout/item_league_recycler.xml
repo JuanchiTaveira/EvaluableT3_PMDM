@@ -14,4 +14,16 @@
             app:layout_constraintTop_toTopOf="parent"
             android:textSize="20sp"
             android:paddingBottom="10dp"/>
+
+    <ImageButton
+            android:layout_width="38dp"
+            android:layout_height="33dp"
+            app:srcCompat="@drawable/arrow3"
+            android:id="@+id/imageView2"
+            app:layout_constraintStart_toEndOf="@+id/leagueName"
+            app:layout_constraintTop_toTopOf="parent"
+            android:paddingBottom="10dp"
+            android:layout_marginStart="5dp"
+            android:backgroundTint="#00FFFFFF" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
