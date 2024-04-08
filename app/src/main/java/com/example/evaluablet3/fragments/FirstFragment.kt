@@ -50,6 +50,9 @@ class FirstFragment : Fragment() {
 
     private fun fillLeaguesList() {
 
+        if (!leaguesList.isNullOrEmpty())
+            return
+
         val leaguesRequest = JsonObjectRequest(Request.Method.GET,
             "https://www.thesportsdb.com/api/v1/json/3/all_leagues.php",
             null,

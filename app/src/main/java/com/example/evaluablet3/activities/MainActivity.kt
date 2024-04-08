@@ -10,9 +10,12 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.evaluablet3.R
 import com.example.evaluablet3.adapters.LeaguesAdapter
+import com.example.evaluablet3.adapters.TeamsAdapter
 import com.example.evaluablet3.databinding.ActivityMainBinding
+import com.example.evaluablet3.model.Team
+import com.google.android.material.snackbar.Snackbar
 
-class MainActivity : AppCompatActivity(), LeaguesAdapter.OnClickLeagueListener {
+class MainActivity : AppCompatActivity(), LeaguesAdapter.OnClickLeagueListener, TeamsAdapter.OnClickTeamListener {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
@@ -54,5 +57,9 @@ class MainActivity : AppCompatActivity(), LeaguesAdapter.OnClickLeagueListener {
         bundle.putString("league", league)
 
         findNavController(R.id.nav_host_fragment_content_main2).navigate(R.id.action_FirstFragment_to_SecondFragment, bundle)
+    }
+
+    override fun addTeamToFavs(team: Team) {
+        Snackbar.make(binding.root, "${team.name} agregado a favoritos", Snackbar.LENGTH_SHORT).show()
     }
 }
