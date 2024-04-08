@@ -29,14 +29,13 @@ class TeamsAdapter(var teamsList: List<Team>, var context: Context) : RecyclerVi
 
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TeamsAdapter.MyHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.item_team_recycler, parent, false)
         return MyHolder(view)
     }
 
-    override fun onBindViewHolder(holder: TeamsAdapter.MyHolder, position: Int) {
+    override fun onBindViewHolder(holder: MyHolder, position: Int) {
         val actualTeam = teamsList[position]
-
         holder.teamName.text = actualTeam.name
         Glide.with(context).load(actualTeam.image).into(holder.teamImg)
 

@@ -33,7 +33,6 @@ class SecondFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentSecondBinding.inflate(inflater, container, false)
-
         league = arguments?.getString("league").toString()
 
         return binding.root
@@ -67,7 +66,7 @@ class SecondFragment : Fragment() {
 
                 for (i in 0 until jsonArray.length()) {
                     val actualTeam = jsonArray[i] as JSONObject
-                    teamsList.add(Team(actualTeam.getString("strTeam"), actualTeam.getString("strTeamBadge")))
+                    teamsList.add(Team(actualTeam.getString("idTeam"), actualTeam.getString("strTeam"), actualTeam.getString("strTeamBadge")))
                 }
 
                 binding.recyclerTeams.adapter?.notifyDataSetChanged()
