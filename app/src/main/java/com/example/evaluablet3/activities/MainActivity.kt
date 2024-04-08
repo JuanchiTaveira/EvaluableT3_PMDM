@@ -9,9 +9,10 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.evaluablet3.R
+import com.example.evaluablet3.adapters.LeaguesAdapter
 import com.example.evaluablet3.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), LeaguesAdapter.OnClickLeagueListener {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
@@ -46,5 +47,12 @@ class MainActivity : AppCompatActivity() {
             R.id.action_favs -> true
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    override fun seeTeamsFromLeague(league: String) {
+        val bundle = Bundle()
+        bundle.putString("league", league)
+
+        findNavController(R.id.nav_host_fragment_content_main2).navigate(R.id.action_FirstFragment_to_SecondFragment, bundle)
     }
 }
