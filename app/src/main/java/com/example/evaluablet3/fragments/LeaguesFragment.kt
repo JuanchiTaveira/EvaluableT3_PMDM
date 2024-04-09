@@ -11,15 +11,15 @@ import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.example.evaluablet3.adapters.LeaguesAdapter
-import com.example.evaluablet3.databinding.FragmentFirstBinding
+import com.example.evaluablet3.databinding.FragmentLeaguesBinding
 import org.json.JSONObject
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
-class FirstFragment : Fragment() {
+class LeaguesFragment : Fragment() {
 
-    private var _binding: FragmentFirstBinding? = null
+    private var _binding: FragmentLeaguesBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -30,7 +30,7 @@ class FirstFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentFirstBinding.inflate(inflater, container, false)
+        _binding = FragmentLeaguesBinding.inflate(inflater, container, false)
         return binding.root
     }
 

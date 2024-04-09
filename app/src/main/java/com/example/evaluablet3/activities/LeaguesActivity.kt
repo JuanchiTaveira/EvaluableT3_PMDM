@@ -11,23 +11,23 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.evaluablet3.R
 import com.example.evaluablet3.adapters.LeaguesAdapter
 import com.example.evaluablet3.adapters.TeamsAdapter
-import com.example.evaluablet3.databinding.ActivityMainBinding
+import com.example.evaluablet3.databinding.ActivityLeaguesBinding
 import com.example.evaluablet3.model.Team
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 
-class MainActivity : AppCompatActivity(), LeaguesAdapter.OnClickLeagueListener, TeamsAdapter.OnClickTeamListener {
+class LeaguesActivity : AppCompatActivity(), LeaguesAdapter.OnClickLeagueListener, TeamsAdapter.OnClickTeamListener {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityLeaguesBinding
     private lateinit var auth: FirebaseAuth
     private lateinit var database: FirebaseDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityLeaguesBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
 

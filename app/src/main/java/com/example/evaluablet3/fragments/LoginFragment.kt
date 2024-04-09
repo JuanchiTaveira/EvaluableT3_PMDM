@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.evaluablet3.R
-import com.example.evaluablet3.activities.MainActivity
+import com.example.evaluablet3.activities.LeaguesActivity
 import com.example.evaluablet3.databinding.FragmentLoginBinding
 import com.example.evaluablet3.utils.Utils
 import com.google.android.material.snackbar.Snackbar
@@ -66,7 +66,7 @@ class LoginFragment : Fragment() {
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener {
                     if (it.isSuccessful) {
-                        val intent = Intent(requireActivity(), MainActivity::class.java)
+                        val intent = Intent(requireActivity(), LeaguesActivity::class.java)
                         intent.putExtra("uid", auth.currentUser!!.uid)
                         startActivity(intent)
                     } else {

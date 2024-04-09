@@ -3,27 +3,27 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/nav_graph2"
-        app:startDestination="@id/FirstFragment">
+        app:startDestination="@id/LeaguesFragment">
 
     <fragment
-            android:id="@+id/FirstFragment"
-            android:name="com.example.evaluablet3.fragments.FirstFragment"
+            android:id="@+id/LeaguesFragment"
+            android:name="com.example.evaluablet3.fragments.LeaguesFragment"
             android:label="Ligas"
-            tools:layout="@layout/fragment_first">
+            tools:layout="@layout/fragment_leagues">
 
         <action
                 android:id="@+id/action_FirstFragment_to_SecondFragment"
-                app:destination="@id/SecondFragment" />
+                app:destination="@id/TeamsFragment" />
     </fragment>
     <fragment
-            android:id="@+id/SecondFragment"
-            android:name="com.example.evaluablet3.fragments.SecondFragment"
-            android:label="@string/second_fragment_label"
-            tools:layout="@layout/fragment_second">
+            android:id="@+id/TeamsFragment"
+            android:name="com.example.evaluablet3.fragments.TeamsFragment"
+            android:label="Equipos"
+            tools:layout="@layout/fragment_teams">
 
         <action
                 android:id="@+id/action_SecondFragment_to_FirstFragment"
-                app:destination="@id/FirstFragment" />
+                app:destination="@id/LeaguesFragment" />
         <argument
                 android:name="league"
                 app:argType="string" />

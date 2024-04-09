@@ -11,17 +11,16 @@ import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.example.evaluablet3.adapters.TeamsAdapter
-import com.example.evaluablet3.databinding.FragmentSecondBinding
+import com.example.evaluablet3.databinding.FragmentTeamsBinding
 import com.example.evaluablet3.model.Team
 import org.json.JSONObject
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
-class SecondFragment : Fragment() {
+class TeamsFragment : Fragment() {
 
-    private var _binding: FragmentSecondBinding? = null
-
+    private var _binding: FragmentTeamsBinding? = null
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -32,7 +31,7 @@ class SecondFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentSecondBinding.inflate(inflater, container, false)
+        _binding = FragmentTeamsBinding.inflate(inflater, container, false)
         league = arguments?.getString("league").toString()
 
         return binding.root
