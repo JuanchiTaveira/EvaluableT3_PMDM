@@ -26,12 +26,14 @@ class TeamsAdapter(var teamsList: List<Team>, var context: Context) : RecyclerVi
     class MyHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
         var teamName: TextView
         var teamImg: ImageView
-        var btnAddToFavs: ImageButton
+        var btnAddOrRemoveFromFavs: ImageButton
+        var actualTeamExistsInFavs: Boolean
 
         init {
             teamName = itemView.findViewById(R.id.teamName)
             teamImg = itemView.findViewById(R.id.teamImg)
-            btnAddToFavs = itemView.findViewById(R.id.btnAddToFavs)
+            btnAddOrRemoveFromFavs = itemView.findViewById(R.id.btnAddOrRemoveFromFavs)
+            actualTeamExistsInFavs = false
         }
 
     }
@@ -43,22 +45,34 @@ class TeamsAdapter(var teamsList: List<Team>, var context: Context) : RecyclerVi
 
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
         val actualTeam = teamsList[position]
+        val favsReference = database.getReference("users/${auth.currentUser!!.uid}/favorites")
+
         holder.teamName.text = actualTeam.name
         Glide.with(context).load(actualTeam.image).into(holder.teamImg)
 
-        database.getReference("users/${auth.currentUser!!.uid}/favorites").child(actualTeam.idTeam).addListenerForSingleValueEvent(object : ValueEventListener {
+        favsReference.child(actualTeam.idTeam).addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 if (dataSnapshot.exists()) {
-                    holder.btnAddToFavs.setImageResource(android.R.drawable.btn_star_big_on)
+                    holder.actualTeamExistsInFavs = true
+                    holder.btnAddOrRemoveFromFavs.setImageResource(android.R.drawable.btn_star_big_on)
                 }
             }
 
             override fun onCancelled(error: DatabaseError) {}
         })
 
-        holder.btnAddToFavs.setOnClickListener {
-            listener.addTeamToFavs(actualTeam)
-            holder.btnAddToFavs.setImageResource(android.R.drawable.btn_star_big_on)
+        holder.btnAddOrRemoveFromFavs.setOnClickListener {
+            if (!holder.actualTeamExistsInFavs) {
+                favsReference.child(actualTeam.idTeam).setValue(actualTeam)
+                holder.btnAddOrRemoveFromFavs.setImageResource(android.R.drawable.btn_star_big_on)
+                listener.addOrRemoveTeamFromFavs(actualTeam, true)
+                holder.actualTeamExistsInFavs = true
+            } else {
+                favsReference.child(actualTeam.idTeam).removeValue()
+                holder.btnAddOrRemoveFromFavs.setImageResource(android.R.drawable.btn_star_big_off)
+                holder.actualTeamExistsInFavs = false
+                listener.addOrRemoveTeamFromFavs(actualTeam, false)
+            }
         }
     }
 
@@ -67,6 +81,6 @@ class TeamsAdapter(var teamsList: List<Team>, var context: Context) : RecyclerVi
     }
 
     interface OnClickTeamListener {
-        fun addTeamToFavs(team: Team)
+        fun addOrRemoveTeamFromFavs(team: Team, add: Boolean)
     }
 }

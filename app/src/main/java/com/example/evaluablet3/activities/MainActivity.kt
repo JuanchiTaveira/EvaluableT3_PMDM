@@ -64,8 +64,11 @@ class MainActivity : AppCompatActivity(), LeaguesAdapter.OnClickLeagueListener, 
         findNavController(R.id.nav_host_fragment_content_main2).navigate(R.id.action_FirstFragment_to_SecondFragment, bundle)
     }
 
-    override fun addTeamToFavs(team: Team) {
-        database.getReference("users/${auth.currentUser!!.uid}/favorites").child(team.idTeam).setValue(team)
-        Snackbar.make(binding.root, "${team.name} agregado a favoritos", Snackbar.LENGTH_SHORT).show()
+    override fun addOrRemoveTeamFromFavs(team: Team, add: Boolean) {
+        if (add) {
+            Snackbar.make(binding.root, "${team.name} agregado a favoritos", Snackbar.LENGTH_SHORT).show()
+        } else {
+            Snackbar.make(binding.root, "${team.name} eliminado de favoritos", Snackbar.LENGTH_SHORT).show()
+        }
     }
 }
