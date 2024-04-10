@@ -38,7 +38,7 @@
                 android:id="@+id/editTextEmail"
                 app:layout_constraintBottom_toBottomOf="@+id/tvEmail"
                 app:layout_constraintStart_toEndOf="@+id/tvEmail"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 app:layout_constraintTop_toTopOf="@+id/tvEmail"
                 android:layout_marginStart="20dp" />
 
@@ -60,7 +60,7 @@
                 android:id="@+id/editTextPassword"
                 app:layout_constraintBottom_toBottomOf="@+id/tvPassword"
                 app:layout_constraintStart_toEndOf="@+id/tvPassword"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 app:layout_constraintTop_toTopOf="@+id/tvPassword"
                 android:layout_marginStart="20dp" />
 
@@ -82,7 +82,7 @@
                 android:id="@+id/editTextName"
                 app:layout_constraintBottom_toBottomOf="@+id/tvName"
                 app:layout_constraintStart_toEndOf="@+id/tvPassword"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 app:layout_constraintTop_toTopOf="@+id/tvName"
                 android:layout_marginStart="20dp" />
 
