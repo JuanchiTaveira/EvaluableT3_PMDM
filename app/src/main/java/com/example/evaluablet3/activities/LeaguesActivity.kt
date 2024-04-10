@@ -12,6 +12,8 @@ import com.example.evaluablet3.R
 import com.example.evaluablet3.adapters.LeaguesAdapter
 import com.example.evaluablet3.adapters.TeamsAdapter
 import com.example.evaluablet3.databinding.ActivityLeaguesBinding
+import com.example.evaluablet3.fragments.LeaguesFragment
+import com.example.evaluablet3.fragments.TeamsFragment
 import com.example.evaluablet3.model.Team
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
@@ -53,7 +55,15 @@ class LeaguesActivity : AppCompatActivity(), LeaguesAdapter.OnClickLeagueListene
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_favs -> {
-                findNavController(R.id.nav_host_fragment_content_main2).navigate(R.id.action_LeaguesFragment_to_favsFragment)
+                val currentFragment = supportFragmentManager.primaryNavigationFragment?.childFragmentManager?.primaryNavigationFragment?.javaClass
+
+                if (currentFragment != null) {
+                    if (currentFragment.simpleName == LeaguesFragment::class.java.simpleName)
+                        findNavController(R.id.nav_host_fragment_content_main2).navigate(R.id.action_LeaguesFragment_to_favsFragment)
+                    else if (currentFragment.simpleName == TeamsFragment::class.java.simpleName)
+                        findNavController(R.id.nav_host_fragment_content_main2).navigate(R.id.action_TeamsFragment_to_favsFragment)
+                }
+
                 return true
             }
             else -> super.onOptionsItemSelected(item)
