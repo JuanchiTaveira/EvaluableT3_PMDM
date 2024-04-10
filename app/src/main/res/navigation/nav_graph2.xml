@@ -14,6 +14,9 @@
         <action
                 android:id="@+id/action_FirstFragment_to_SecondFragment"
                 app:destination="@id/TeamsFragment" />
+        <action
+                android:id="@+id/action_LeaguesFragment_to_favsFragment"
+                app:destination="@id/FavsFragment" />
     </fragment>
     <fragment
             android:id="@+id/TeamsFragment"
@@ -27,5 +30,20 @@
         <argument
                 android:name="league"
                 app:argType="string" />
+        <action
+                android:id="@+id/action_TeamsFragment_to_favsFragment"
+                app:destination="@id/FavsFragment" />
+    </fragment>
+    <fragment
+            android:id="@+id/FavsFragment"
+            android:name="com.example.evaluablet3.fragments.FavsFragment"
+            android:label="Equipos Favoritos"
+            tools:layout="@layout/fragment_favs">
+        <action
+                android:id="@+id/action_favsFragment_to_LeaguesFragment"
+                app:destination="@id/LeaguesFragment" />
+        <action
+                android:id="@+id/action_favsFragment_to_TeamsFragment"
+                app:destination="@id/TeamsFragment" />
     </fragment>
 </navigation>

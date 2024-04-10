@@ -52,7 +52,10 @@ class LeaguesActivity : AppCompatActivity(), LeaguesAdapter.OnClickLeagueListene
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.action_favs -> true
+            R.id.action_favs -> {
+                findNavController(R.id.nav_host_fragment_content_main2).navigate(R.id.action_LeaguesFragment_to_favsFragment)
+                return true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
